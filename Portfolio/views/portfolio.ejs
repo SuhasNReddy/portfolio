@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    
+    <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</link>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: aliceblue;
+            font-family: 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: url("https://4kwallpapers.com/images/wallpapers/windows-10-microsoft-windows-colorful-black-background-2048x1536-1552.jpg");
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: right;
+            
+            background-color: #0A0A0A;
+        }
+        .navbar{
+            /* border: 1px solid red; */
+            display: flex;
+            padding: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+            /* position: sticky; */
+            /* top: 0; */
+        }
+        .image{
+            width: 80px;
+            height: auto;
+            /* margin-left: 50px; */
+        }
+        .navbar ul{
+            display: flex;
+        }
+        .navbar ul li{
+            list-style: none;
+            display: flex;
+        }
+        .navbar ul li a{
+            
+            /* padding: 8px; */
+            margin: 10px 20px;
+            /* padding-bottom: 5px; */
+            text-decoration: none;
+            color: white;
+            font-size: 1.4rem;
+            position: relative;
+        }
+
+        .navbar ul li a::before{
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 0;
+            border-bottom: 3px solid rgb(241, 49, 145) ;
+            border-radius: 2px;
+            left: 0;
+            top: 0;
+            transition: width 1s;
+        }
+
+        .navbar ul li a:hover:before{
+            width: 100%;
+        }
+         #scrollUpBtn {
+        display: none; /* Hide the button by default */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        }
+
+        .Home{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            padding: 10px 8%;
+            
+        }
+        .my-text{
+            position: absolute;
+            top: 65%;
+
+            font-size: 2rem;
+            transform: translateY(-50%);
+
+        }
+        .dynamic{
+            color: rgb(241, 49, 145);
+            position: relative;
+
+        }
+        .dynamic::before{
+            content: "";
+            border-left: 2px solid rgb(241, 49, 145);
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10,10, 10,0.9);
+            left: 0;
+            animation: typing 2s  steps(10) infinite;
+        }
+        @keyframes typing {
+            50%{
+                left: 100%;
+            }100%{
+                left: 0;
+            }
+        }
+        .my-text > *{
+            margin:15px 0;
+        }
+        .aboutme{
+            width: 100%;
+            height: fit-content;
+            padding: 80px 15%;
+            display: flex;
+            justify-content: center;
+            font-size: 1.1rem;
+            align-items: center;
+            /* border: 1px solid white; */
+        }
+        .aboutme .box{
+            
+            width: 100%;
+            height: 100%;
+            /* border: 1px solid white; */
+            display: flex;
+            justify-content: center;
+            min-width: 350px;
+            align-items: center;
+            flex-wrap: wrap;
+            
+        }
+        .aboutme .box .box1{
+            width: 45%;
+            height: auto;
+            padding: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(15, 15, 15,0.5);
+        }
+        .aboutme .box .box2{
+            width: 50%;
+            padding: 4%;
+            margin: 2%;
+            height: fit-content;
+            min-width: 300px;
+            background-color: rgba(10, 10, 10,0.85);
+        }
+        .elinks{
+            display: flex;
+        }
+        .elinks > *{
+            margin: 4% 8%;
+            position: relative;
+            cursor: pointer;
+            padding-bottom: 3px;
+        }
+
+        .elinks > *::before{
+            content: "";
+            width: 0%;
+            border-bottom:3px solid rgb(241, 49, 145) ;
+            position: absolute;
+            height: 100%;
+            transition: 0.5s;
+        }
+
+        .activeelink::before{
+            width: 50%;
+        }.allskills ul li{
+            padding: 4px 0;
+        }
+        .allskills ul li span{
+            padding: 3px 0;
+            color:rgb(241, 49, 145) ;
+        }
+
+        .myimage2{
+            width: 100%;
+            height: auto;
+        }
+
+        /* Services */
+        .services{
+            width: 100%;
+            height: auto;
+            padding: 50px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .services .container{
+            
+            padding: 2%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .services .service{
+            width: 300px;
+            height: 200px;
+            padding: 10px;
+            text-align: center;
+            background-color:  rgba(81, 81, 81, 0.85);
+            border-radius: 10px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            transition: transform 0.5s;
+            
+        }
+        .services .service .somelogo{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: rgb(241, 49, 145);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .service .somelogo i{
+            color: rgb(241, 49, 145);
+            
+
+        }
+        .services .service:hover{
+            box-shadow: 1px 2px 20px rgba(100, 100, 100, 0.9);
+            transform: translateY(-7px);
+        }
+
+        .services .service:hover .somelogo{
+            background-color: rgb(241, 49, 145);
+        }
+        .services .service:hover .somelogo i{
+            color: white;
+        }
+        .service h4{
+            font-size: 1.1rem;
+            padding: 4px;
+        }
+        .services >p{
+            font-size: 2rem;
+            padding: 8px;
+            font-style: normal;
+            color: rgb(241, 49, 145);
+        }
+
+        /* projrcts */
+        .myprojects{
+            padding: 50px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .myprojects > p{
+            font-size: 2rem;
+            padding: 8px;
+            font-style: normal;
+            color: rgb(241, 49, 145);
+        }
+
+        .myprojects .projectcon{
+            padding: 2%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .myprojects .projectcon .project{
+            position: relative;
+            width: 450px;
+            height: 500px;
+            
+            text-align: center;
+            background-color:  rgba(81, 81, 81, 0.85);
+            border-radius: 10px;
+            margin: 10px;
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            transition: transform 1s;
+        }
+        .project img{
+            width: 100%;
+            
+        }
+
+        .project .somedescription{
+            position: absolute;
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            overflow: hidden;
+            height: 100%;
+            background: linear-gradient(to right,rgb(250, 108, 179) ,transparent);
+            
+            transition: all 0.5s;
+            
+        }
+        .project:hover{
+            transform: translateY(-8px);
+        }
+        .project:hover .somedescription{
+            padding: 10px;
+            right: 0;
+        }
+        .project .somedescription p{
+            top: 10px;
+            font-size: 1.3rem;            
+            transition: all 0.5s;
+            transition-delay: 0.5s;
+            transform: translateX(-100%);
+            color: black;
+            
+            
+        }
+        .project:hover .somedescription p{
+            transform: translateX(0%);
+        }
+        .project .somedescription .projecttitle{
+            color: rgb(241, 49, 145) ;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        /* Contact */
+        .contactme{
+            padding: 50px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contactme > p{
+            font-size: 2rem;
+            padding: 8px;
+            font-style: normal;
+            color: rgb(241, 49, 145);
+        }
+
+        .contactme .contactcon{
+            padding: 2%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .contactme .contactcon > div{
+            position: relative;
+            width: 450px;
+            
+            
+            background-color:  rgba(81, 81, 81, 0.85);
+            border-radius: 10px;
+            margin: 10px;
+            
+        }
+        .contactme .contactcon i{
+            color:rgb(241, 49, 145);
+        }
+        .contactme .contactcon .contact1{
+            height: auto;
+            width: 250px;
+            padding: 0 2% ;
+        }
+        .contactme .contactcon .contact1>*{
+            padding: 5px;
+            margin: 10px;
+        }
+        .contact1 .allicons{
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+        .allicons >div{
+            width: 30px;
+            height: 30px;
+            /* background-color: rgb(241, 49, 145); */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s;
+        }
+        .allicons > div:hover{
+            background-color: rgb(241, 49, 145);
+            transform: translateY(-5px);
+        }
+        .allicons > div:hover i{
+            color: white;
+        }
+        .contact1 i{
+            font-size: 20px;
+            margin: 5px;
+        }
+        .contact1 span{
+            padding: 0 4px ;
+            font-size: 1.1rem;
+        }
+
+        .contact2{
+            padding: 4%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: fit-content;
+        }
+
+        .contact2details 
+        {
+            position: relative;
+            padding: 0 0;
+            margin: 25px 0;
+            display: flex;
+            width: 100%;
+
+        }
+
+        .contact2details label{
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: rgb(241, 49, 145);
+            transition: all 0.5s;
+
+        }
+        .contact2details input,.contact2details textarea{
+            background: transparent;
+            outline: none;
+            width: 100%;
+            border: none;
+            padding-bottom:3px ;
+            border-bottom: 1px solid rgb(241, 49, 145);
+            
+        }
+
+        .contact2details input:focus +label,.contact2details input:not(:placeholder-shown) +label,.contact2details textarea:focus +label,.contact2details textarea:not(:placeholder-shown) +label{
+            top: -15px;
+            background: transparent;
+        }
+        
+        
+        .submitbtn button{
+         background: transparent;
+         border: none;
+         font-size: 1.2rem;
+         border: 1px solid rgb(241, 49, 145);
+         padding: 5px 20px;
+         border-radius:20px;
+         color: rgb(241, 49, 145);
+         transition: transform 0.5s;
+        }
+        .submitbtn button:hover{
+            cursor: pointer;
+            transform: translateY(-5px);
+            color: white;
+            background-color: rgb(241, 49, 145);
+        }
+
+        .static-content{
+            display: none;
+        }
+
+        @media only screen and (min-width:500px) and (max-width: 800px) {
+            .navbar h2{
+                display: none;
+            }
+            .navbar{
+                justify-content: center;
+            }
+        }
+        
+        @media only screen  and (max-width: 500px) {
+            .navbar h2{
+                display: none;
+            }
+            .navbar{
+                display: block;
+            }
+            .navbar ul{
+                display: block;
+            }
+            .dynamic{
+                display: none;
+            }
+            .static-content{
+                display: inline;
+            }
+            
+            .Home,.aboutme{
+                padding: 0 4%;
+            }
+            .aboutme .box .box2,.aboutme .box{
+                width: 100%;
+                min-width: 0;
+            }
+            .closebtn{
+                display: flex !important;
+                /* height: 100%; */
+                width: fit-content;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+            .closebtn a::before{
+                display: none;
+            }
+
+            .navbar ul li:nth-child(2),.navbar ul li:nth-child(3),.navbar ul li:nth-child(4){
+                display: none;
+            }
+
+        }
+
+        @media only screen  and (max-width: 500px){
+            .myprojects{
+                padding: 5px 8%;
+            }
+            .myprojects .projectcon .project{
+                height: 260px;
+            }
+            .projectcon .project .somedescription{
+                overflow: auto;
+            }
+        }
+
+        .commonerror{
+            padding: 5px;
+            font-size: 1.1rem;
+            
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="Home">
+        <div class="navbar">
+            
+            <h2 style="font-size: 2rem;padding: 8px;">Port<span style="color:rgb(241, 49, 145) ;">folio</span></h2>
+            <ul >
+                <li ><a href="" style="color:rgb(241, 49, 145) ;">Home</a></li>
+                <li class="navdrpdwn"><a href="#skill">Skills</a></li>
+                <li class="navdrpdwn"><a href="#myprojec">Projects</a></li>
+                <li class="navdrpdwn"><a href="#contactm">ContactMe</a></li>
+                <li class="closebtn" style="display: none;">
+                    <a href="#">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        <i class="fa fa-close"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="my-text">
+            
+            <h2>Hi , I am  <span class="static-content" style="color: rgb(241, 49, 145);">Suhas</span> <span class="dynamic" >Suhas</span></h2>
+
+        </div>
+    </div>
+    <div class="aboutme">
+        <div class="box">
+            <div class="box1">
+                <img class="myimage2" src="/images/myphoto.jpg" alt="">
+            </div>
+            <div class="box2">
+                <h3 style="color: rgb(241, 49, 145);padding-bottom: 5px;">About Me</h3>
+                <div class="somecontent">
+                    I'm an enthusiastic web designer with a good sense of aesthetics who loves to make websites that are both aesthetically pleasing and user-friendly. I've developed my abilities in HTML, CSS, and JavaScript over the course of my many years of work experience in the industry. I relish the difficulties that each project presents and am always willing to push the envelope in order to produce extraordinary designs that inspire and engage. By fusing gorgeous aesthetics with simple functionality, I hope to create seamless user experiences. I want to use my portfolio to demonstrate my originality, attention to detail, and capacity for producing powerful web designs. Bring your vision to life by working together!
+                </div>
+                <div class="elinks ">
+                    <p data-id="skill" class="activeelink">Skill</p>
+                    <p data-id="education">Eductaion</p>
+                    <p data-id="cgpa">Cgpa</p>
+                </div>
+                <div class="allskills">
+                    <ul data-id="skill">
+                        <li><span>Web Dev</span><br>Bulding Web Applications</li>
+                        <li><span>UI</span><br>Desiging Web interfaces</li>
+                        
+                    </ul>
+                    <ul data-id="education" style="display: none;">
+                        <li><span>B Tech</span><br>IIIT Sricity</li>
+                        <li><span>High School</span><br>KVB</li>
+                        <li><span>PU</span><br>Deeksha</li>
+                    </ul>
+                    <ul data-id="cgpa" style="display: none;">
+                        <li><span>CGPA</span><br>9.5/10</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill" class="services">
+        <p>Skills</p>
+        <div class="container">
+            <div class="service">
+                <div class="somelogo">
+                    <i class="fa fa-laptop" style="font-size:26px;"></i>
+                </div>
+                <div>
+                    <h4>Web Design</h4>
+                    <p>Art and process of creating visually appealing and user-friendly websites for optimal user experience.</p>
+                </div>
+                
+            </div>
+            <div class="service">
+                <div class="somelogo">
+                    <i class="fa fa-code" style="font-size:26px;"></i>
+                </div>
+                <div>
+                    <h4>Html</h4>
+                    <p> Markup language for creating the structure and content of webpages.</p>  
+                </div>
+            </div>
+            <div class="service">
+                <div class="somelogo">
+                    <i class="fa-brands fa-css3" style="font-size:26px;"></i>
+                </div>
+                <div>
+                    <h4>Css</h4>
+                    <p>Stylesheet language used to define the presentation and layout of HTML documents</p>
+                </div>
+            </div>
+            <div class="service">
+                <div class="somelogo">
+                    <i class='fa-brands fa-js' style='font-size:24px;'></i>
+                </div>
+                <div>
+                    <h4>Js</h4>
+                    <p>Programming language used to create interactive and dynamic behavior on websites and web applications.</p>
+                </div>
+            </div>
+            <div class="service">
+                <div class="somelogo">
+                    <i class="fa-brands fa-node" style="font-size: 36px;"></i>
+                </div>
+                <div>
+                    <h4>Node Js</h4>
+                    <p>JavaScript runtime environment used for server-side scripting, allowing the execution of JavaScript outside the browser.</p>
+                </div>
+            </div>
+            <div class="service">
+                <div class="somelogo">
+                    <i class="fa-brands fa-react" style="font-size:26px;"></i>
+                </div>
+                <div>
+                    <h4>React</h4>
+                    <p>JavaScript library for building user interfaces, providing a component-based approach and efficient rendering for interactive web applications.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myprojec" class="myprojects">
+        <p>
+            MyProjects
+        </p>
+        <div class="projectcon">
+            <div class="project">
+                <img src="https://pbs.twimg.com/profile_images/1427961920959639557/djUPnAvM_400x400.jpg" alt="">
+                <div class="somedescription" >
+                   <p  class="projecttitle" >Frame your memories</p>
+                   <p>The user-friendly event management website Frame Your Memories focuses on creating and carrying out truly memorable events. This handles every last detail with a group of skilled event planners and a selection of all-inclusive services. This website gives customers a seamless experience for anything from weddings and birthdays to business events and social gatherings.FYM provides clients individualised event planning tools, a sizable network of dependable vendors, and a creative approach to realise their objectives. Whether it's locating the ideal location, planning appealing decor, or managing logistics, Frame Your Memories is dedicated to providing unique experiences that make a lasting impact.</p>
+                   
+                </div>
+            </div>
+            <div class="project">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="contactm" class="contactme">
+        <p>Contact Me</p>
+        <div class="contactcon">
+            <div class="contact1">
+                <div><i class="fa fa-phone" ></i> <span>76768081</span></div>
+                <div><i class="fa fa-envelope"></i> <span>suhas.r21@iiits.in</span></div>
+                <div class="allicons">
+                    <div><i class="fa-brands fa-github"></i></div>
+                    <div><i class="fa-brands fa-linkedin"></i></div>
+                    <div><i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="contact2">
+                
+                <div class="contact2details">
+                    <input class="c2inputfields" type="email" name="mail" id="mail" required placeholder=" ">
+                    <label for="mail">Mail</label>
+                </div>
+
+                <div class="contact2details">
+                    <input class="c2inputfields" type="text" name="subject" id="subject" required placeholder=" ">
+                    <label for="subject">Subject</label>
+                </div>
+
+                <div class="contact2details">
+                    <textarea class="c2inputfields" style="resize: none;" name="message" id="message" cols="30" rows="5" required placeholder=" "></textarea>
+                    <label for="message" >Body</label>
+                </div>
+
+                <div class="submitbtn">
+                    <button onclick="sendmail()">Submit</button>
+                </div>
+                <div class="errormail commonerror"></div>
+                <div class="successmail commonerror"></div>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollUpBtn"><i class="fa fa-angle-double-up"></i></button>
+    
+    <script>
+        
+
+        window.addEventListener('scroll', function() {
+        var scrollUpBtn = document.getElementById('scrollUpBtn');
+        
+        if (window.scrollY >= window.innerHeight/2) {
+            scrollUpBtn.style.display = 'block';
+        } else {
+            scrollUpBtn.style.display = 'none';
+        }
+        });
+
+        document.getElementById('scrollUpBtn').addEventListener('click', function() {
+        // Scroll to the top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        let dynamictext=document.querySelector(".dynamic");
+
+        let changetext=()=>{
+            setTimeout(()=>{
+                dynamictext.innerHTML="Suhas"
+            },0)
+            setTimeout(()=>{
+                dynamictext.innerHTML="Coder"
+            },2000)
+            
+        }
+
+        changetext()
+        setInterval(changetext,4000)
+
+
+        /*About me links skill education*/
+        
+        let elinks=document.querySelectorAll(".elinks > p")
+        let allskills=document.querySelectorAll(".allskills ul")
+
+        let skilldropdown=(e)=>{
+            
+            allskills.forEach(single=>{
+                if(e.target.getAttribute("data-id")===single.getAttribute("data-id")){
+                    
+                    single.style.display="block"
+                }
+                else{
+                    single.style.display="none"
+                    
+                }
+            })
+
+            elinks.forEach(single=>{
+                if(e.target.getAttribute("data-id")==single.getAttribute("data-id")){
+                    single.className="activeelink"
+                }else{
+                    single.className=""
+                }
+            })
+            
+        }
+
+        elinks.forEach(singlelink=>{
+            singlelink.addEventListener("click",skilldropdown,singlelink)
+        })
+
+        //  nav bar drop down
+        let navclosebtn=document.querySelector('.navbar .closebtn');
+        let navdropdown=document.querySelectorAll(".navbar .navdrpdwn");
+        let navbtnfafa=document.querySelectorAll('.navbar .closebtn i');
+        navbtnfafa[1].style.display='none';
+        navclosebtn.addEventListener("click",()=>{
+
+            function changedisplay(disp){
+                navdropdown.forEach(elem=>{
+                    elem.style.display=disp;
+                    console.log(elem)
+                })
+            }
+
+            if(navdropdown[0].style.display!='flex'){
+                changedisplay('flex');
+                navbtnfafa[1].style.display='inline-block'
+                navbtnfafa[0].style.display='none'
+                
+                
+            }else{
+                changedisplay('none');
+                navbtnfafa[1].style.display='none'
+                navbtnfafa[0].style.display='inline-block'
+            }
+            
+        })
+    
+        // sending mail
+        let contact2detailsinput=document.querySelectorAll(".contact2details .c2inputfields");
+        let erormessage=document.querySelectorAll(".commonerror");
+
+        function mailvalidation(){
+            let mailtext=contact2detailsinput[0].value;
+            let regexp=/^([a-z 0-9\.-]+)@([a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+            return regexp.test(mailtext);
+        }
+        
+        
+                    
+        async function sendmail(){
+            if(contact2detailsinput[0].value.trim()===""){
+                contact2detailsinput[0].style.borderBottom='1px white solid';
+                erormessage[0].innerHTML="Mail can't be empty";
+                return false
+            }
+            else if(!mailvalidation()){
+                contact2detailsinput[0].style.borderBottom='1px white solid';
+                erormessage[0].innerHTML="Invalid Mail";
+                return false
+            }
+            
+            if(contact2detailsinput[1].value.trim()===""){
+                contact2detailsinput[1].style.borderBottom='1px white solid';
+                erormessage[0].innerHTML="Subject can't be Empty";
+                return false
+            }
+
+            if(contact2detailsinput[2].value.trim()===""){
+                contact2detailsinput[2].style.borderBottom='1px white solid';
+                erormessage[0].innerHTML="Body can't be Empty";
+                return false
+            }
+
+            //No error in input
+            erormessage[0].innerHTML=""
+            contact2detailsinput.forEach(single=>{
+                single.style.borderBottom='1px rgb(241, 49, 145) solid';
+            })
+
+
+            const mailobj={
+                mymail:contact2detailsinput[0].value,
+                mysubject:contact2detailsinput[1].value,
+                mytext:contact2detailsinput[2].value,
+                sentAt: Date(),
+                alread:false
+            }
+            try{
+               const response=await fetch('http://localhost:8000/inbox',{
+                    method:"POST",
+                    body:JSON.stringify(mailobj),
+                    headers:{
+                        'Content-Type' : "application/json"
+                    }
+                })
+                
+                const data=await response.json();
+                console.log(data);
+
+                if(data){
+                    erormessage[1].innerHTML="Mail Sent"
+                }
+            }
+            catch (er){
+                if(er.message==="Failed to fetch"){
+                    erormessage[0].innerHTML="The database server is down"
+                }else{
+                    erormessage[0].innerHTML="Some Error Occured While Sending mail"
+                }
+                
+            }
+            
+            contact2detailsinput.forEach(single=>{
+                single.value='';
+            })
+        }
+
+
+    </script>
+</body>
+</html>

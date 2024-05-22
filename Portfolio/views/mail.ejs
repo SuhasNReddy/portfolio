@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            font-family: "Quicksand";
+            color: #333;
+            box-sizing: border-box;
+            /* text-align: center; */
+        }
+        body{
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center;
+             */
+             align-items: center;
+        }
+        h4,h2,h3{
+            color: #f1356d;
+        }
+        h2{
+            text-align: center;
+        }
+        .mymail{
+            padding: 20px;
+            /* width: 450px; */
+            /* margin: auto; */
+        }
+        h3,p{
+            padding: 10px 20px;
+        }
+        p span{
+            font-size: 0.9rem;
+        }
+        .fromm{
+            font-weight: bold;
+        }
+        .mymail:hover{
+            box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+
+        }
+        a{
+           
+            text-decoration: none;
+           
+        }
+    </style>
+</head>
+<body>
+
+    
+    <a href="/allmails"><h2 style="text-align: center;">All Mails</h2></a>
+    <% if(data) {%>
+        <div class="mymail">
+            <h3><%= data.mysubject %></h3>
+            <p><span class="fromm"> &lt; <%= data.mymail %> ></span class="sentAt"> <%= data.sentAt.slice(0,25) %></p>
+            <p><%= data.mytext%></p>
+        </div>
+    <% }else{ %>
+        <p>No Mail Found</p>
+    <% } %>
+    
+</body>
+</html>

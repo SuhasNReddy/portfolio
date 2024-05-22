@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            font-family: "Quicksand";
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        body{
+            padding: 20px;
+        }
+        h4,h2{
+            color: #f1356d;
+        }
+        h2{
+            text-align: center;
+        }
+
+        a{
+            text-decoration: none;
+            /* background-color: aqua; */
+        }
+        .allmails{
+            padding: 10px;
+            
+            
+            
+        }
+        .mail{
+            padding: 10px;
+            min-width: 300px;
+            margin:10px;
+            /* background-color: antiquewhite; */
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: space-between; */
+            
+            
+        }
+        .mail > *{
+            width: 300px;
+            overflow-x: hidden;
+            height: 20px;
+            overflow-y: hidden;
+        }
+        .mail p{
+            width: 350px;
+            overflow: hidden;
+
+        }
+        .allmails .mail:hover{
+            box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+            
+        }
+        .controls{
+            cursor:context-menu;
+            padding: 20px;
+            margin: 0 10px;
+        }
+        .controls span{
+            padding: 2px;
+            margin: 0.8px;
+            background-color: rgb(230, 229, 229);
+            
+        }
+        .controls span:hover{
+            background-color: rgb(198, 194, 194);
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <h2>All Mails</h2>
+    
+    <% if(data.length>0){ %>
+        <span class="controls">
+            <% if((page>=1) && (data.length>0) ){%>
+            <a href="/allmails?p=<%= page-1 %>"><span>&lt;</span></a>
+            <% }%>
+                
+            <% if(page < ( Math.ceil(totalcount/limit) -1 )) {%>
+                <a href="/allmails?p=<%= page+1 %>"><span>&gt;</span></a>
+            <% } %>
+        </span>
+    <% } %>
+
+    <div class="allmails">
+                
+        <% if(data.length>0){ %>
+            <% data.forEach(mail=>{ %>
+                <a href="/mail/<%= mail.id %>">
+                    <div class="mail">
+                        
+                        <h4 <% if(mail.alread){ %> style="color:black" <% } %> ><%= mail.mymail %></h4>
+                        <p ><span style="font-weight: bold;"><%= mail.mysubject %></span> - <span> <%= mail.mytext  %></span> </p>
+                        
+                        
+                    </div>
+                </a>
+            <% }) %>
+        <% }else{ %>
+            <h4>No Mails</h4>
+        <% } %>
+    </div>
+</body>
+</html>
